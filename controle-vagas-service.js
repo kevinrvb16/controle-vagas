@@ -47,10 +47,10 @@ app.get('/ControleVagas/:numeroVaga', (req, res) => {
 
 // Cria uma nova vaga controlada
 app.post('/ControleVagas', (req, res, next) => {
-    var vagaControlada = new controleVagas({
+    const vagaControlada = new controleVagas({
         "numeroVaga": req.body.numeroVaga,
         "horarioFicouOcupado": req.body.horarioFicouOcupado,
-     });
+    });
     db.insertOne(vagaControlada, (err, result) => {
         if (err) return console.log("Error: " + err);
         console.log('Vaga controlada cadastrada com sucesso no BD!');
